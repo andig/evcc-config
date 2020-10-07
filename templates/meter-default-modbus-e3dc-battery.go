@@ -17,7 +17,15 @@ func init() {
     address: 40070
     type: holding
     decode: int32
-  scale: -1 # reverse direction`,
+  scale: -1 # reverse direction
+soc:
+  type: modbus
+  uri: e3dc.fritz.box:502
+  id: 1 # ModBus slave id
+  register:
+    address: 40082
+    type: holding
+    decode: uint16`,
 	}
 
 	registry.Add(template)

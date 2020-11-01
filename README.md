@@ -32,6 +32,9 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [vzlogger (HTTP)](#meter-vzlogger-http)
 - [vzlogger (Push Server/ Websocket)](#meter-vzlogger-push-server-websocket)
 - [vzlogger (split import/export channels)](#meter-vzlogger-split-import-export-channels)
+- [Fronius Symo, Symo Hybrid (PV Meter/ HTTP)](#meter-fronius-symo-symohybrid-pv-meter-http)
+- [Fronius Symo Hybrid (Grid Meter/ HTTP)](#meter-fronius-symohybrid-grid-meter-http)
+- [Fronius Symo Hybrid (Battery Meter/ HTTP)](#meter-fronius-symohybrid-battery-meter-http)
 
 ## Chargers
 
@@ -411,6 +414,71 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       scale: -1 # export must result in negative values
 ```
 
+<a id="meter-fronius-symo-symohybrid-pv-meter-http"></a>
+#### Fronius Symo, Symo Hybrid (PV Meter/ HTTP)
+Addition der beiden PV Werte bei Verwendung von 2 Fronius Symos
+
+```yaml
+- type: default
+  name: pv
+  power:
+    type: calc
+    add:
+    - type: http
+      uri: http://<IP_SYMO_HYBRID>/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+      method: GET # default HTTP method
+      headers:
+      - content-type: application/json
+      insecure: true
+      jq: .Body.Data.Site.P_PV
+    - type: http
+      uri: http://<IP_SYMO_WR>/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+      method: GET # default HTTP method
+      headers:
+      - content-type: application/json
+      insecure: true
+      jq: .Body.Data.Site.P_PV
+```
+
+<a id="meter-fronius-symohybrid-grid-meter-http"></a>
+#### Fronius Symo Hybrid (Grid Meter/ HTTP)
+
+```yaml
+- type: default
+  name: grid
+  power:
+    type: http
+    uri: http://<IP_SYMO_HYBRID>/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+    method: GET # default HTTP method
+    headers:
+    - content-type: application/json
+    insecure: true
+    jq: .Body.Data.Site.P_Grid
+```
+
+<a id="meter-fronius-symohybrid-battery-meter-http"></a>
+#### Fronius Symo Hybrid (Battery Meter/ HTTP)
+
+```yaml
+- type: default
+  name: battery
+  power:
+    type: http
+    uri: http://<IP_SYMO_HYBRID>/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+    method: GET # default HTTP method
+    headers:
+    - content-type: application/json
+    insecure: true
+    jq: .Body.Data.Site.P_Akku
+  soc:
+    type: http
+    uri: http://<IP_SYMO_HYBRID>/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+    method: GET # default HTTP method
+    headers:
+    - content-type: application/json
+    insecure: true
+    jq: .Body.Data.Inverters."1".SOC
+```
 
 ### Chargers
 

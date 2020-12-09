@@ -24,9 +24,9 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [SMA SunnyBoy / TriPower / other SunSpec PV-inverters (PV Meter)](#meter-sma-sunnyboy--tripower--other-sunspec-pv-inverters-pv-meter)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
-- [Sonnenbatterie Eco (Battery/ HTTP)](#meter-sonnenbatterie-eco-battery-http)
-- [Sonnenbatterie Eco (Grid meter/ HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
-- [Sonnenbatterie Eco (PV meter/ HTTP)](#meter-sonnenbatterie-eco-pv-meter-http)
+- [Sonnenbatterie Eco/10 (Battery/ HTTP)](#meter-sonnenbatterie-eco-battery-http)
+- [Sonnenbatterie Eco/10 (Grid meter/ HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
+- [Sonnenbatterie Eco/10 (PV meter/ HTTP)](#meter-sonnenbatterie-eco-pv-meter-http)
 - [Tesla Powerwall (Battery)](#meter-tesla-powerwall-battery)
 - [Tesla Powerwall (Grid meter)](#meter-tesla-powerwall-grid-meter)
 - [Tesla Powerwall (PV meter)](#meter-tesla-powerwall-pv-meter)
@@ -328,12 +328,16 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 #### Sonnenbatterie Eco (Battery/ HTTP)
 
 ```yaml
-- type: default
-  power: # power reading
-    type: http # use http plugin
-    uri: http://192.168.1.75:8080/api/v1/status
-    jq: .Pac_total_W
-    scale: -1 # reverse direction
+  type: default
+  power:
+    type: http
+    uri: http://<ipaddress>:8080/api/v1/status
+    jq: .Pac_total_W    
+    scale: -1
+  soc:
+    type: http
+    uri: http://<ipaddress>:8080/api/v1/status
+    jq: .USOC    
 ```
 
 <a id="meter-sonnenbatterie-eco-grid-meter-http"></a>
@@ -343,7 +347,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://192.168.1.75:8080/api/v1/status
+    uri: http://<ipaddress>:8080/api/v1/status
     jq: .GridFeedIn_W
     scale: -1 # reverse direction
 ```
@@ -355,7 +359,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://192.168.1.75:8080/api/v1/status
+    uri: http://<ipaddress>8080/api/v1/status
     jq: .Production_W
 ```
 

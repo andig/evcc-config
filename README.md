@@ -328,7 +328,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 #### Sonnenbatterie Eco (Battery/ HTTP)
 
 ```yaml
-  type: default
+- type: default
   power:
     type: http
     uri: http://<ipaddress>:8080/api/v1/status

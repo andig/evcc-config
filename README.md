@@ -24,9 +24,9 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - [SMA SunnyBoy / TriPower / other SunSpec PV-inverters (PV Meter)](#meter-sma-sunnyboy--tripower--other-sunspec-pv-inverters-pv-meter)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
-- [Sonnenbatterie Eco (Battery/ HTTP)](#meter-sonnenbatterie-eco-battery-http)
-- [Sonnenbatterie Eco (Grid meter/ HTTP)](#meter-sonnenbatterie-eco-grid-meter-http)
-- [Sonnenbatterie Eco (PV meter/ HTTP)](#meter-sonnenbatterie-eco-pv-meter-http)
+- [Sonnenbatterie Eco/10 (Battery/ HTTP)](#meter-sonnenbatterie-eco-10-battery-http)
+- [Sonnenbatterie Eco/10 (Grid meter/ HTTP)](#meter-sonnenbatterie-eco-10-grid-meter-http)
+- [Sonnenbatterie Eco/10 (PV meter/ HTTP)](#meter-sonnenbatterie-eco-10-pv-meter-http)
 - [Tesla Powerwall (Battery)](#meter-tesla-powerwall-battery)
 - [Tesla Powerwall (Grid meter)](#meter-tesla-powerwall-grid-meter)
 - [Tesla Powerwall (PV meter)](#meter-tesla-powerwall-pv-meter)
@@ -324,38 +324,42 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
       decode: uint32s
 ```
 
-<a id="meter-sonnenbatterie-eco-battery-http"></a>
-#### Sonnenbatterie Eco (Battery/ HTTP)
+<a id="meter-sonnenbatterie-eco-10-battery-http"></a>
+#### Sonnenbatterie Eco/10 (Battery/ HTTP)
 
 ```yaml
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://192.168.1.75:8080/api/v1/status
+    uri: http://<ip_address>:8080/api/v1/status
     jq: .Pac_total_W
     scale: -1 # reverse direction
+  soc:
+    type: http
+    uri: http://<ip_address>:8080/api/v1/status
+    jq: .USOC 
 ```
 
-<a id="meter-sonnenbatterie-eco-grid-meter-http"></a>
-#### Sonnenbatterie Eco (Grid meter/ HTTP)
+<a id="meter-sonnenbatterie-eco-10-grid-meter-http"></a>
+#### Sonnenbatterie Eco/10 (Grid meter/ HTTP)
 
 ```yaml
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://192.168.1.75:8080/api/v1/status
+    uri: http://<ip_address>:8080/api/v1/status
     jq: .GridFeedIn_W
     scale: -1 # reverse direction
 ```
 
-<a id="meter-sonnenbatterie-eco-pv-meter-http"></a>
-#### Sonnenbatterie Eco (PV meter/ HTTP)
+<a id="meter-sonnenbatterie-eco-10-pv-meter-http"></a>
+#### Sonnenbatterie Eco/10 (PV meter/ HTTP)
 
 ```yaml
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://192.168.1.75:8080/api/v1/status
+    uri: http://<ip_address>:8080/api/v1/status
     jq: .Production_W
 ```
 

@@ -1,7 +1,7 @@
 type: modbus
 name: SMA Sunny Boy Storage (Battery)
 sample: |
-  uri: 192.168.178.91:502 # 
+  uri: 192.0.2.2:502
   id: 126 # ModBus slave id
   model: sma-sunspec
   power: Power # default value, optionally override

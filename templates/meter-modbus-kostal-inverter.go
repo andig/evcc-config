@@ -10,7 +10,7 @@ func init() {
 		Type:   "modbus",
 		Name:   "Kostal Inverter (PV Meter)",
 		Sample: `model: kostal
-uri: 192.168.0.1:1502
+uri: 192.0.2.2:1502
 id: 71
 power: Power`,
 	}

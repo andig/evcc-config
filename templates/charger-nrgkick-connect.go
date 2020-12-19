@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "nrgkick-connect",
 		Name:   "NRGKick Connect",
-		Sample: `uri: http://192.168.1.4
+		Sample: `uri: http://192.0.2.2
 mac: 00:99:22 # MAC address
 password: # password`,
 	}

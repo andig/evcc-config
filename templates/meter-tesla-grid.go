@@ -9,7 +9,7 @@ func init() {
 		Class:  "meter",
 		Type:   "tesla",
 		Name:   "Tesla Powerwall (Grid meter)",
-		Sample: `uri: http://192.168.1.4/api/meters/aggregates
+		Sample: `uri: http://192.0.2.2/api/meters/aggregates
 usage: site # grid meter: `+"`"+`site`+"`"+`, pv: `+"`"+`solar`+"`"+`, battery: `+"`"+`battery`+"`"+``,
 	}
 

@@ -174,7 +174,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
   power:
     type: modbus # use ModBus plugin
     model: kostal
-    uri: 192.168.178.52:1502 
+    uri: 192.0.2.2:1502 
     id: 71 # Configured Modbus Device ID 
     register: # manual register configuration
       address: 252 # (see https://www.kostal-solar-electric.com/de-de/download/-/media/document-library-folder---kse/2018/08/30/08/53/ba_kostal_interface_modbus-tcp_sunspec.pdf)
@@ -188,7 +188,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: modbus
   model: kostal
-  uri: 192.168.0.1:1502
+  uri: 192.0.2.2:1502
   id: 71
   power: Power
 ```
@@ -199,7 +199,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: modbus
   model: kostal
-  uri: 192.168.0.1:502
+  uri: 192.0.2.2:502
   id: 71
   power: Power
   energy: Energy
@@ -211,7 +211,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: modbus
   model: sdm
-  uri: rs485.fritz.box:23
+  uri: 192.0.2.2:502
   rtu: true # rs485 device connected using ethernet adapter
   id: 2
   power: Power # default values, optionally override
@@ -224,7 +224,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: modbus
   model: sdm
-  uri: rs485.fritz.box:23
+  uri: 192.0.2.2:502
   rtu: true # rs485 device connected using ethernet adapter
   id: 2
   power: Power # default value, optionally override
@@ -242,11 +242,11 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     - type: modbus
       model: sunspec
       value: 160:1:DCW # string 1
-      uri: 192.168.178.52:1502 
+      uri: 192.0.2.2:1502 
       id: 71 # Configured Modbus Device ID 
     - type: modbus  
       value: 160:2:DCW # string 2
-      uri: 192.168.178.52:1502 
+      uri: 192.0.2.2:1502 
       id: 71 # Configured Modbus Device ID 
 ```
 
@@ -255,7 +255,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: modbus
-  uri: 192.168.178.91:502 # 
+  uri: 192.0.2.2:502
   id: 126 # ModBus slave id
   model: sma-sunspec
   power: Power # default value, optionally override
@@ -276,7 +276,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 ```yaml
 - type: modbus
   model: sunny-island
-  uri: 192.168.1.4:502
+  uri: 192.0.2.2:502
   id: 126
   power: Power # default values, optionally override
   soc: ChargeState # battery soc (Ladezustand)
@@ -287,7 +287,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: modbus
-  uri: 192.168.178.91:502 # 
+  uri:192.0.2.2:502
   id: 126 # ModBus slave id
   model: sma-sunspec
   power: Power # default value, optionally override
@@ -301,7 +301,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power:
     type: modbus
-    uri: 192.168.0.32:502 # IP address of the SolarLog device and ModBus port address
+    uri: 192.0.2.2:502 # IP address of the SolarLog device and ModBus port address
     id: 1
     register:
       address: 3518
@@ -316,7 +316,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power:
     type: modbus
-    uri: 192.168.0.32:502 # IP address of the SolarLog  device and ModBus port address
+    uri: 192.0.2.2:502 # IP address of the SolarLog  device and ModBus port address
     id: 1
     register:
       address: 3502
@@ -336,8 +336,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     scale: -1 # reverse direction
   soc:
     type: http
-    uri: http://<ip_address>:8080/api/v1/status
-    jq: .USOC 
+    uri: http://192.0.2.2:8080/api/v1/status
+    jq: .USOC
 ```
 
 <a id="meter-sonnenbatterie-eco-10-grid-meter-http"></a>
@@ -368,7 +368,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: tesla
-  uri: http://192.168.1.4/api/meters/aggregates
+  uri: http://192.0.2.2/api/meters/aggregates
   usage: battery # grid meter: `site`, pv: `solar`, battery: `battery`
 ```
 
@@ -377,7 +377,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: tesla
-  uri: http://192.168.1.4/api/meters/aggregates
+  uri: http://192.0.2.2/api/meters/aggregates
   usage: site # grid meter: `site`, pv: `solar`, battery: `battery`
 ```
 
@@ -386,7 +386,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: tesla
-  uri: http://192.168.1.4/api/meters/aggregates
+  uri: http://192.0.2.2/api/meters/aggregates
   usage: solar # grid meter: `site`, pv: `solar`, battery: `battery`
 ```
 
@@ -408,7 +408,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power:
     type: ws # use websocket plugin
-    uri: ws://volkszaehler:8082/socket
+    uri: ws://192.0.2.2:8082/socket
     jq: .data | select(.uuid=="<uuid>") .tuples[0][1] # parse response json
     timeout: 30s
     scale: 1
@@ -423,10 +423,10 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     type: calc # use calc plugin
     add:
     - type: http # import channel
-      uri: http://volkszaehler/api/data/<import-uuid>.json?from=now
+      uri: http://demo.volkszaehler.org/api/data/<import-uuid>.json?from=now
       jq: .data.tuples[0][1] # parse response json
     - type: http # export channel
-      uri: http://volkszaehler/api/data/<export-uuid>.json?from=now
+      uri: http://demo.volkszaehler.org/api/data/<export-uuid>.json?from=now
       jq: .data.tuples[0][1] # parse response json
       scale: -1 # export must result in negative values
 ```
@@ -440,7 +440,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: evsewifi
-  uri: http://192.168.1.4 # SimpleEVSE-Wifi address
+  uri: http://192.0.2.2 # SimpleEVSE-Wifi address
 ```
 
 <a id="charger-generisch"></a>
@@ -486,7 +486,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: go-e
-  token: 4711c # or go-e cloud API token
+  token: 4711c # go-e cloud API token
   cache: 10s # go-e cloud API cache duration
 ```
 
@@ -495,7 +495,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: go-e
-  uri: http://192.168.1.4 # either go-e local address
+  uri: http://192.0.2.2 # go-e ip address (local)
 ```
 
 <a id="charger-keba-connect"></a>
@@ -503,7 +503,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: keba
-  uri: 192.168.1.4:7090 # KEBA address
+  uri: 192.0.2.2 # KEBA ip address
   rfid:
     tag: 765765348 # RFID tag, see `evcc charger` to show tag
 ```
@@ -513,7 +513,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: mcc
-  uri: https://192.168.1.4 # Mobile Charger Connect address
+  uri: https://192.0.2.2 # Mobile Charger Connect address
   password: # home user password
 ```
 
@@ -531,7 +531,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: nrgkick-connect
-  uri: http://192.168.1.4
+  uri: http://192.0.2.2
   mac: 00:99:22 # MAC address
   password: # password
 ```
@@ -541,7 +541,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: openwb
-  broker: 192.168.0.2 # openWB IP
+  broker: 192.0.2.2 # openWB IP
   id: 1 # loadpoint id
 ```
 
@@ -579,7 +579,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: phoenix-emcp
-  uri: 192.168.0.8:502 # TCP ModBus address
+  uri: 192.0.2.2:502 # TCP ModBus address
   id: 1
 ```
 
@@ -599,7 +599,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 
 ```yaml
 - type: simpleevse
-  uri: 192.168.0.8:502 # TCP ModBus address
+  uri: 192.0.2.2:502 # TCP ModBus address
 ```
 
 <a id="charger-simple-evse-usb"></a>

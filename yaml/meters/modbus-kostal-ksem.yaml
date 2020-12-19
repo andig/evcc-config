@@ -2,7 +2,7 @@ type: modbus
 name: Kostal Smart Energy Meter (Grid Meter)
 sample: |
   model: kostal
-  uri: 192.168.0.1:502
+  uri: 192.0.2.2:502
   id: 71
   power: Power
   energy: Energy

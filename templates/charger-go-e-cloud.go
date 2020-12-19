@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "go-e",
 		Name:   "go-eCharger (Cloud)",
-		Sample: `token: 4711c # or go-e cloud API token
+		Sample: `token: 4711c # go-e cloud API token
 cache: 10s # go-e cloud API cache duration`,
 	}
 

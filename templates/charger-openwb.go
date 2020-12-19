@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "openwb",
 		Name:   "openWB (MQTT)",
-		Sample: `broker: 192.168.0.2 # openWB IP
+		Sample: `broker: 192.0.2.2 # openWB IP
 id: 1 # loadpoint id`,
 	}
 

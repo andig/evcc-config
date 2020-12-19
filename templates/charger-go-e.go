@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "go-e",
 		Name:   "go-eCharger (Lokal)",
-		Sample: `uri: http://192.168.1.4 # either go-e local address`,
+		Sample: `uri: http://192.0.2.2 # go-e ip address (local)`,
 	}
 
 	registry.Add(template)

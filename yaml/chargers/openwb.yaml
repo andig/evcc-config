@@ -1,5 +1,5 @@
 type: openwb # openWB
 name: openWB (MQTT)
 sample: |
-  broker: 192.168.0.2 # openWB IP
+  broker: 192.0.2.2 # openWB IP
   id: 1 # loadpoint id

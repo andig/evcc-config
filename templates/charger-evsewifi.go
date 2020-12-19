@@ -9,7 +9,7 @@ func init() {
 		Class:  "charger",
 		Type:   "evsewifi",
 		Name:   "EVSE Wifi",
-		Sample: `uri: http://192.168.1.4 # SimpleEVSE-Wifi address`,
+		Sample: `uri: http://192.0.2.2 # SimpleEVSE-Wifi address`,
 	}
 
 	registry.Add(template)

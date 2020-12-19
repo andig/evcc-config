@@ -15,11 +15,11 @@ func init() {
   - type: modbus
     model: sunspec
     value: 160:1:DCW # string 1
-    uri: 192.168.178.52:1502 
+    uri: 192.0.2.2:1502 
     id: 71 # Configured Modbus Device ID 
   - type: modbus  
     value: 160:2:DCW # string 2
-    uri: 192.168.178.52:1502 
+    uri: 192.0.2.2:1502 
     id: 71 # Configured Modbus Device ID `,
 	}
 

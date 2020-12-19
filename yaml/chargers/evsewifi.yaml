@@ -1,4 +1,4 @@
 type: evsewifi # Charger with Phoenix Contact controller
 name: EVSE Wifi
 sample: |
-  uri: http://192.168.1.4 # SimpleEVSE-Wifi address
+  uri: http://192.0.2.2 # SimpleEVSE-Wifi address

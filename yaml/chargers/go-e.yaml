@@ -1,4 +1,4 @@
 type: go-e # go-eCharger
 name: go-eCharger (Lokal)
 sample: |
-  uri: http://192.168.1.4 # either go-e local address
+  uri: http://192.0.2.2 # go-e ip address (local)

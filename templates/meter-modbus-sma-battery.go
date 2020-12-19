@@ -9,7 +9,7 @@ func init() {
 		Class:  "meter",
 		Type:   "modbus",
 		Name:   "SMA Sunny Boy Storage (Battery)",
-		Sample: `uri: 192.168.178.91:502 # 
+		Sample: `uri: 192.0.2.2:502
 id: 126 # ModBus slave id
 model: sma-sunspec
 power: Power # default value, optionally override

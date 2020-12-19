@@ -10,7 +10,7 @@ func init() {
 		Type:   "modbus",
 		Name:   "Modbus (RTU)",
 		Sample: `model: sdm
-uri: rs485.fritz.box:23
+uri: 192.0.2.2:502
 rtu: true # rs485 device connected using ethernet adapter
 id: 2
 power: Power # default value, optionally override

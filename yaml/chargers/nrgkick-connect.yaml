@@ -1,6 +1,6 @@
 type: nrgkick-connect # NRGKick Connect charger
 name: NRGKick Connect
 sample: |
-  uri: http://192.168.1.4
+  uri: http://192.0.2.2
   mac: 00:99:22 # MAC address
   password: # password

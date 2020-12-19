@@ -331,7 +331,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://<ip_address>:8080/api/v1/status
+    uri: http://192.0.2.2:8080/api/v1/status
     jq: .Pac_total_W
     scale: -1 # reverse direction
   soc:
@@ -347,7 +347,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://<ip_address>:8080/api/v1/status
+    uri: http://192.0.2.2:8080/api/v1/status
     jq: .GridFeedIn_W
     scale: -1 # reverse direction
 ```
@@ -359,7 +359,7 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
 - type: default
   power: # power reading
     type: http # use http plugin
-    uri: http://<ip_address>:8080/api/v1/status
+    uri: http://192.0.2.2:8080/api/v1/status
     jq: .Production_W
 ```
 

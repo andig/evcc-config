@@ -1,6 +1,6 @@
 # Configuration examples for EVCC
 
-[![Build Status](https://travis-ci.org/andig/evcc-config.svg?branch=master)](https://travis-ci.org/andig/evcc-config)
+[![Build Status](https://github.com/andig/evcc-config/workflows/Build/badge.svg)](https://github.com/andig/evcc-config/actions?query=workflow%3ABuild)
 
 Configuration examples for the [EVCC EV Charge Controller](https://github.com/andig/evcc).
 

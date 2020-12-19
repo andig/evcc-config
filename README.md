@@ -1,6 +1,6 @@
 # Configuration examples for EVCC
 
-[![Build Status](https://github.com/andig/evcc-config/workflows/Build/badge.svg)](https://github.com/andig/evcc-config/actions?query=workflow%3ABuild)
+[![Build Status](https://travis-ci.org/andig/evcc-config.svg?branch=master)](https://travis-ci.org/andig/evcc-config)
 
 Configuration examples for the [EVCC EV Charge Controller](https://github.com/andig/evcc).
 
@@ -336,8 +336,8 @@ Configuration examples for the [EVCC EV Charge Controller](https://github.com/an
     scale: -1 # reverse direction
   soc:
     type: http
-    uri: http://<ip_address>:8080/api/v1/status
-    jq: .USOC 
+    uri: http://192.0.2.2:8080/api/v1/status
+    jq: .USOC
 ```
 
 <a id="meter-sonnenbatterie-eco-10-grid-meter-http"></a>

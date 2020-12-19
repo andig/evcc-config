@@ -17,7 +17,7 @@ func init() {
 soc:
   type: http
   uri: http://192.0.2.2:8080/api/v1/status
-  jq: .USOC `,
+  jq: .USOC`,
 	}
 
 	registry.Add(template)

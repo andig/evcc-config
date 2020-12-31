@@ -1,0 +1,41 @@
+type: default-i-charge
+  status:
+    type: modbus
+    device: ...
+    baudrate: 57600
+    comset: "8N1"
+    id: 1
+    register:
+        address: 139 # CP-Status
+        type: holding
+        decode: uint16
+  enabled:
+    type: modbus
+    device: ...
+    baudrate: 57600
+    comset: "8N1"
+    id: 1 
+    register: # manual register configuration
+      address: 100 # Zustand
+      type: holding
+      decode: uint16
+  enable:
+    type: modbus
+    device: ...
+    baudrate: 57600
+    comset: "8N1"
+    id: 1
+    register: # manual register configuration
+      address: 100 # ein / aus
+      type: writesingle
+      decode: uint16
+  maxcurrent:
+    type: modbus
+    device: ...
+    baudrate: 57600
+    comset: "8N1"
+    id: 1
+    register: # manual register configuration
+      address: 127 # Strom max
+      type: writesingle
+      decode: uint16

@@ -331,7 +331,6 @@ Additional devices can be configured using the `generic` device type and related
     type: http # use http plugin
     uri: http://192.0.2.2:8080/api/v1/status
     jq: .Pac_total_W
-    scale: -1 # reverse direction
   soc:
     type: http
     uri: http://192.0.2.2:8080/api/v1/status

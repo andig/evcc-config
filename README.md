@@ -33,6 +33,8 @@ Additional devices can be configured using the `generic` device type and related
 - [E3DC (Battery)](#meter-e3dc-battery)
 - [E3DC (Grid Meter)](#meter-e3dc-grid-meter)
 - [E3DC (PV Meter)](#meter-e3dc-pv-meter)
+- [Fronius Solar API V1 (grid S0 meter/ HTTP)](#meter-fronius-solar-api-v1-grid-s0-meter-http)
+- [Fronius Solar API V1 (PV meter/ HTTP)](#meter-fronius-solar-api-v1-pv-meter-http)
 - [Generisch (MQTT)](#meter-generisch-mqtt)
 - [Generisch (Script)](#meter-generisch-script)
 - [Kostal Inverter (Grid Meter)](#meter-kostal-inverter-grid-meter)
@@ -140,6 +142,28 @@ Additional devices can be configured using the `generic` device type and related
       address: 40067 # (40068 - 1) "Photovoltaikleistung in Watt"
       type: holding
       decode: int32s
+```
+
+<a id="meter-fronius-solar-api-v1-grid-s0-meter-http"></a>
+#### Fronius Solar API V1 (grid S0 meter/ HTTP)
+
+```yaml
+- type: default
+  power: # Grid power reading Fronius Solar API V1 GetPowerFlowRealtimeData.P_Grid
+    type: http # use http plugin for grid power (P_Grid)
+    uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+    jq: if .Body.Data.Site.P_Grid == null then 0 else .Body.Data.Site.P_Grid end # parse GetPowerFlowRealtimeData P_Grid response
+```
+
+<a id="meter-fronius-solar-api-v1-pv-meter-http"></a>
+#### Fronius Solar API V1 (PV meter/ HTTP)
+
+```yaml
+- type: default
+  power: # pv power reading Fronius Solar API V1 GetPowerFlowRealtimeData.P_PV
+    type: http # use http plugin for pv power (P_PV)
+    uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi
+    jq: if .Body.Data.Site.P_PV == null then 0 else .Body.Data.Site.P_PV end # parse GetPowerFlowRealtimeData P_PV response
 ```
 
 <a id="meter-generisch-mqtt"></a>

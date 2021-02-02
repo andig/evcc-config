@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "default",
-		Name:   "Fronius Solar API V1 (grid S0 meter/ HTTP)",
+		Name:   "Fronius Solar API V1 (Grid S0 meter/ HTTP)",
 		Sample: `power: # Grid power reading Fronius Solar API V1 GetPowerFlowRealtimeData.P_Grid
   type: http # use http plugin for grid power (P_Grid)
   uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi

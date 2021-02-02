@@ -33,7 +33,7 @@ Additional devices can be configured using the `generic` device type and related
 - [E3DC (Battery)](#meter-e3dc-battery)
 - [E3DC (Grid Meter)](#meter-e3dc-grid-meter)
 - [E3DC (PV Meter)](#meter-e3dc-pv-meter)
-- [Fronius Solar API V1 (grid S0 meter/ HTTP)](#meter-fronius-solar-api-v1-grid-s0-meter-http)
+- [Fronius Solar API V1 (Grid S0 meter/ HTTP)](#meter-fronius-solar-api-v1-grid-s0-meter-http)
 - [Fronius Solar API V1 (PV meter/ HTTP)](#meter-fronius-solar-api-v1-pv-meter-http)
 - [Generisch (MQTT)](#meter-generisch-mqtt)
 - [Generisch (Script)](#meter-generisch-script)
@@ -145,7 +145,7 @@ Additional devices can be configured using the `generic` device type and related
 ```
 
 <a id="meter-fronius-solar-api-v1-grid-s0-meter-http"></a>
-#### Fronius Solar API V1 (grid S0 meter/ HTTP)
+#### Fronius Solar API V1 (Grid S0 meter/ HTTP)
 
 ```yaml
 - type: default

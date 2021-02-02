@@ -1,5 +1,5 @@
 type: default
-name: Fronius Solar API V1 (grid S0 meter/ HTTP)
+name: Fronius Solar API V1 (Grid S0 meter/ HTTP)
 sample: |
   power: # Grid power reading Fronius Solar API V1 GetPowerFlowRealtimeData.P_Grid
     type: http # use http plugin for grid power (P_Grid)

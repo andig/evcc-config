@@ -8,13 +8,12 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "modbus",
-		Name:   "Modbus (RTU)",
-		Sample: `model: sdm
+		Name:   "SMA Sunny Island (Battery)",
+		Sample: `model: sunny-island
 uri: 192.0.2.2:502
-rtu: true # rs485 device connected using ethernet adapter
-id: 2
-power: Power # default value, optionally override
-energy: Sum # energy value (Zählerstand)`,
+id: 126
+power: Power # default values, optionally override
+soc: ChargeState # battery soc (Ladezustand)`,
 	}
 
 	registry.Add(template)

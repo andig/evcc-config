@@ -1,32 +1,9 @@
 type: default
 name: Zero S (No web api - only bluetooth)
 sample: |
-  ...
-
-# js functions for Zero S SoC
-javascript:
-- vm: shared
-  script: |
-    state = {
-      chargepower: 0,
-      battery: 50, // motorcycle Zero S
-    };
-    function get() {
-      console.log("state:", JSON.stringify(state));
-    }
-    function set() {
-      console.log(param+":", val);
-      console.log("state:", JSON.stringify(state));
-    }
-
-...
-
-# vehicle definitions
-vehicles:
-- name: zero
+  type: default
   title: Zero S # display name for UI
   capacity: 10.8 # ZF 7.2 + ZF 3.6kWh
-  type: default
   charge:
     type: js
     vm: shared

@@ -13,3 +13,21 @@ sample: |
       if (state.battery > 100) state.battery = 100;
       state.battery;
   cache: 1s
+
+## js functions for Zero S SoC
+## (copy javascript section right behind the log section and uncomment)
+#javascript:
+#- vm: shared
+#  script: |
+#    state = {
+#      chargepower: 0,
+#      battery: 50, // motorcycle Zero S
+#    };
+#    function get() {
+#      console.log("state:", JSON.stringify(state));
+#    }
+#    function set() {
+#      console.log(param+":", val);
+#      console.log("state:", JSON.stringify(state));
+#    }
+#

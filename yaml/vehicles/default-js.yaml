@@ -1,13 +1,9 @@
 type: default # Configurable charger
-name: Generic (Javascript)
+name: Generic EV without SoC (Javascript)
 sample: |
   title: My electric vehicle # display name for UI
   capacity: 10 # kWh
   charge:
     type: js
-    vm: shared
-    script: |
-        state = { battery: 95, } ;// vehicle SoC in %
-        state.battery ;
-    cache: 1s
+    script: 95; // vehicle SoC in %
   # ...

@@ -5,5 +5,4 @@ sample: |
   capacity: 10 # kWh
   charge:
     type: js
-    script: 95; // vehicle SoC in %
-  # ...
+    script: 95 // vehicle SoC in %

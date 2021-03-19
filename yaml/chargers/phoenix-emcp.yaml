@@ -1,5 +1,0 @@
-type: phoenix-emcp
-name: Phoenix EM-CP Controller (Modbus/TCP)
-sample: |
-  uri: 192.0.2.2:502
-  id: 1

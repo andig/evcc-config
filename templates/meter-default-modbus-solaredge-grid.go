@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "default",
-		Name:   "Solaredge (Grid Meter)",
+		Name:   "SolarEdge (Grid Meter)",
 		Sample: `power:
   type: modbus
   uri: 192.0.2.2:502

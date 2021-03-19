@@ -1,5 +1,5 @@
 type: default
-name: Solaredge (Grid Meter)
+name: SolarEdge (Grid Meter)
 sample: |
   power:
     type: modbus

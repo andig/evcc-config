@@ -1,6 +1,6 @@
 module github.com/andig/evcc-config
 
-go 1.14
+go 1.16
 
 require (
 	github.com/andig/evcc v0.0.0-20200727161511-d58eb15f2dc9

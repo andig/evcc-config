@@ -12,7 +12,7 @@ func init() {
 		Sample: `power:
   type: http
   uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi
-  jq: .Body.Data.Site.P_Akku == null then 0 else .Body.Data.Site.P_Akku end
+  jq: if .Body.Data.Site.P_Akku == null then 0 else .Body.Data.Site.P_Akku end
 soc:
   type: http
   uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi

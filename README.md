@@ -19,6 +19,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [EVSE DIN (Modbus RTU)](#charger-evse-din-modbus-rtu)
 - [EVSE DIN (Modbus/TCP)](#charger-evse-din-modbus-tcp)
 - [EVSE-Wifi](#charger-evse-wifi)
+- [FritzDECT](#charger-fritzdect)
 - [Generic](#charger-generic)
 - [Generic (MQTT)](#charger-generic-mqtt)
 - [go-eCharger](#charger-go-echarger)
@@ -29,8 +30,9 @@ If you want to contribute configurations to this repository please open a Pull R
 - [NRGKick BT (Bluetooth)](#charger-nrgkick-bt-bluetooth)
 - [NRGKick Connect](#charger-nrgkick-connect)
 - [openWB (MQTT)](#charger-openwb-mqtt)
-- [Phoenix EM-CP Controller (Modbus/TCP)](#charger-phoenix-em-cp-controller-modbus-tcp)
-- [Phoenix EV-CC Controller (Modbus RTU)](#charger-phoenix-ev-cc-controller-modbus-rtu)
+- [Phoenix EM-CP-PP-ETH Controller (Modbus/TCP)](#charger-phoenix-em-cp-pp-eth-controller-modbus-tcp)
+- [Phoenix EV-ETH Controller (Modbus/TCP)](#charger-phoenix-ev-eth-controller-modbus-tcp)
+- [Phoenix EV-SER Controller (Modbus RTU)](#charger-phoenix-ev-ser-controller-modbus-rtu)
 - [Wallbe (Eco, Pro)](#charger-wallbe-eco-pro)
 - [Wallbe (pre 2019 EV-CC-AC1 controller)](#charger-wallbe-pre-2019-ev-cc-ac1-controller)
 
@@ -61,7 +63,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [SMA Sunny Home Manager / Energy Meter (Speedwire)](#meter-sma-sunny-home-manager--energy-meter-speedwire)
 - [SMA Sunny Island / Sunny Boy Storage (Battery Meter)](#meter-sma-sunny-island--sunny-boy-storage-battery-meter)
 - [SMA SunnyBoy / TriPower / other PV-inverter (PV Meter)](#meter-sma-sunnyboy--tripower--other-pv-inverter-pv-meter)
-- [Solaredge (Grid Meter)](#meter-solaredge-grid-meter)
+- [SolarEdge (Grid Meter)](#meter-solaredge-grid-meter)
 - [SolarEdge StorEdge (Battery Meter)](#meter-solaredge-storedge-battery-meter)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
@@ -82,6 +84,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Ford (Kuga, Mustang, etc)](#vehicle-ford-kuga-mustang-etc)
 - [Generic](#vehicle-generic)
 - [Generic (Script)](#vehicle-generic-script)
+- [Generic EV without SoC (Javascript)](#vehicle-generic-ev-without-soc-javascript)
 - [Hyundai (Kona, Ioniq)](#vehicle-hyundai-kona-ioniq)
 - [Kia (e-Niro, e-Soul, etc)](#vehicle-kia-e-niro-e-soul-etc)
 - [Nissan (Leaf)](#vehicle-nissan-leaf)
@@ -167,8 +170,10 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: modbus
   model: sdm
   device: /dev/ttyUSB0 # serial port
+  baudrate: 9600
+  comset: 8N1
   id: 1
-  energy: Sum # this assignment is only required for charge meter usage
+  energy: Sum # only required for charge meter usage
 ```
 
 <a id="meter-eastron-sdm-modbus-meter-rtu-over-tcp"></a>
@@ -191,7 +196,7 @@ If you want to contribute configurations to this repository please open a Pull R
   power:
     type: http
     uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi
-    jq: .Body.Data.Site.P_Akku == null then 0 else .Body.Data.Site.P_Akku end
+    jq: if .Body.Data.Site.P_Akku == null then 0 else .Body.Data.Site.P_Akku end
   soc:
     type: http
     uri: http://192.0.2.2/solar_api/v1/GetPowerFlowRealtimeData.fcgi
@@ -427,7 +432,7 @@ If you want to contribute configurations to this repository please open a Pull R
 ```
 
 <a id="meter-solaredge-grid-meter"></a>
-#### Solaredge (Grid Meter)
+#### SolarEdge (Grid Meter)
 
 ```yaml
 - type: default
@@ -501,8 +506,8 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: default
-  power: # power reading
-    type: http # use http plugin
+  power:
+    type: http
     uri: http://192.0.2.2:8080/api/v1/status
     jq: .Pac_total_W
   soc:
@@ -516,8 +521,8 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: default
-  power: # power reading
-    type: http # use http plugin
+  power:
+    type: http
     uri: http://192.0.2.2:8080/api/v1/status
     jq: .GridFeedIn_W
     scale: -1 # reverse direction
@@ -528,8 +533,8 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: default
-  power: # power reading
-    type: http # use http plugin
+  power:
+    type: http
     uri: http://192.0.2.2:8080/api/v1/status
     jq: .Production_W
 ```
@@ -628,6 +633,18 @@ If you want to contribute configurations to this repository please open a Pull R
 ```yaml
 - type: evsewifi
   uri: http://192.0.2.2
+```
+
+<a id="charger-fritzdect"></a>
+#### FritzDECT
+
+```yaml
+- type: fritzdect
+  uri: https://fritz.box # FRITZ!Box ip address (local)
+  user: xxxxxxxxxx # FRITZ!Box username (Has to have Smart Home privileges!)
+  password: yyyyyyyyyy # FRITZ!Box password
+  ain: 117788992233 # switch actor identification number without blanks (see AIN number on switch sticker)
+  standbypower: 10 # standbypower threshold in W (depends on embeded vehicle charger)
 ```
 
 <a id="charger-generic"></a>
@@ -775,24 +792,39 @@ If you want to contribute configurations to this repository please open a Pull R
   id: 1 # loadpoint id
 ```
 
-<a id="charger-phoenix-em-cp-controller-modbus-tcp"></a>
-#### Phoenix EM-CP Controller (Modbus/TCP)
+<a id="charger-phoenix-em-cp-pp-eth-controller-modbus-tcp"></a>
+#### Phoenix EM-CP-PP-ETH Controller (Modbus/TCP)
 
 ```yaml
-- type: phoenix-emcp
-  uri: 192.0.2.2:502
-  id: 1
+- type: phoenix-em-eth
+  uri: 192.168.0.8:502
+  meter:
+    power: true    # charge meter connected to controller
+    energy: true   # charge meter connected to controller
+    currents: true # charge meter connected to controller
 ```
 
-<a id="charger-phoenix-ev-cc-controller-modbus-rtu"></a>
-#### Phoenix EV-CC Controller (Modbus RTU)
+<a id="charger-phoenix-ev-eth-controller-modbus-tcp"></a>
+#### Phoenix EV-ETH Controller (Modbus/TCP)
 
 ```yaml
-- type: phoenix-evcc
+- type: phoenix-ev-eth
+  uri: 192.168.0.8:502
+  meter:
+    power: true    # charge meter connected to controller
+    energy: true   # charge meter connected to controller
+    currents: true # charge meter connected to controller
+```
+
+<a id="charger-phoenix-ev-ser-controller-modbus-rtu"></a>
+#### Phoenix EV-SER Controller (Modbus RTU)
+
+```yaml
+- type: phoenix-ev-ser
   device: /dev/ttyUSB0
-  baudrate: 9600
+  baudrate: 9600 # configurable (S2/DIP 1)
   comset: 8N1
-  id: 1
+  id: 1 # configurable (S2/DIP 2–6)
 ```
 
 <a id="charger-wallbe-eco-pro"></a>
@@ -876,6 +908,18 @@ If you want to contribute configurations to this repository please open a Pull R
     cmd: /bin/sh -c "echo 50" # actual command
     timeout: 3s # kill script after 3 seconds
   cache: 5m # cache duration
+```
+
+<a id="vehicle-generic-ev-without-soc-javascript"></a>
+#### Generic EV without SoC (Javascript)
+
+```yaml
+- type: default
+  title: My electric vehicle # display name for UI
+  capacity: 10 # kWh
+  charge:
+    type: js
+    script: 95 // vehicle SoC in %
 ```
 
 <a id="vehicle-hyundai-kona-ioniq"></a>

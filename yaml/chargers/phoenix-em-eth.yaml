@@ -1,0 +1,8 @@
+type: phoenix-em-eth
+name: Phoenix EM-CP-PP-ETH Controller (Modbus/TCP)
+sample: |
+  uri: 192.168.0.8:502
+  meter:
+    power: true    # charge meter connected to controller
+    energy: true   # charge meter connected to controller
+    currents: true # charge meter connected to controller

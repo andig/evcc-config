@@ -11,8 +11,10 @@ func init() {
 		Name:   "Eastron SDM Modbus Meter (RTU)",
 		Sample: `model: sdm
 device: /dev/ttyUSB0 # serial port
+baudrate: 9600
+comset: 8N1
 id: 1
-energy: Sum # this assignment is only required for charge meter usage`,
+energy: Sum # only required for charge meter usage`,
 	}
 
 	registry.Add(template)

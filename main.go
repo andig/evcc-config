@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -76,7 +75,7 @@ func scanFolder(root string) (files []string) {
 }
 
 func parseSample(file string) registry.Template {
-	src, err := ioutil.ReadFile(file)
+	src, err := os.ReadFile(file)
 	if err != nil {
 		panic(err)
 	}
@@ -111,7 +110,7 @@ func render(wr io.Writer, sample registry.Template) {
 }
 
 func renderSummary(wr io.Writer, samples []registry.Template) {
-	summaryTemplate, err := ioutil.ReadFile(summary)
+	summaryTemplate, err := os.ReadFile(summary)
 	if err != nil {
 		panic(err)
 	}

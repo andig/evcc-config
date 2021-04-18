@@ -1,0 +1,7 @@
+type: warp
+name: ThinkerForge WARP Charger
+sample: |
+  broker: 192.0.2.2:1883
+  topic: warp
+  UseMeter: true # true for WARP Charger Pro
+  timeout: 30s

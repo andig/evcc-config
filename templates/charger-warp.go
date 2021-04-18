@@ -11,7 +11,7 @@ func init() {
 		Name:   "TinkerForge WARP Charger",
 		Sample: `broker: 192.0.2.2:1883
 topic: warp
-UseMeter: true # WARP Charger Pro
+useMeter: true # WARP Charger Pro
 timeout: 30s`,
 	}
 

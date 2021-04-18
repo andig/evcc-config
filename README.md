@@ -848,7 +848,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - type: warp
   broker: 192.0.2.2:1883
   topic: warp
-  UseMeter: true # WARP Charger Pro
+  useMeter: true # WARP Charger Pro
   timeout: 30s
 ```
 

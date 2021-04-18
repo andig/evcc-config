@@ -34,7 +34,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Phoenix EV-ETH Controller (Modbus/TCP)](#charger-phoenix-ev-eth-controller-modbus-tcp)
 - [Phoenix EV-SER Controller (Modbus RTU)](#charger-phoenix-ev-ser-controller-modbus-rtu)
 - [Tasmota](#charger-tasmota)
-- [ThinkerForge WARP Charger](#charger-thinkerforge-warp-charger)
+- [TinkerForge WARP Charger](#charger-tinkerforge-warp-charger)
 - [Wallbe (Eco, Pro)](#charger-wallbe-eco-pro)
 - [Wallbe (pre 2019 EV-CC-AC1 controller)](#charger-wallbe-pre-2019-ev-cc-ac1-controller)
 
@@ -841,14 +841,14 @@ If you want to contribute configurations to this repository please open a Pull R
   standbypower: 10 # standbypower threshold / trickle charge of used charger in W
 ```
 
-<a id="charger-thinkerforge-warp-charger"></a>
-#### ThinkerForge WARP Charger
+<a id="charger-tinkerforge-warp-charger"></a>
+#### TinkerForge WARP Charger
 
 ```yaml
 - type: warp
   broker: 192.0.2.2:1883
   topic: warp
-  UseMeter: true # true for WARP Charger Pro
+  UseMeter: true # WARP Charger Pro
   timeout: 30s
 ```
 

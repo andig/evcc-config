@@ -8,10 +8,10 @@ func init() {
 	template := registry.Template{
 		Class:  "charger",
 		Type:   "warp",
-		Name:   "ThinkerForge WARP Charger",
+		Name:   "TinkerForge WARP Charger",
 		Sample: `broker: 192.0.2.2:1883
 topic: warp
-UseMeter: true # true for WARP Charger Pro
+UseMeter: true # WARP Charger Pro
 timeout: 30s`,
 	}
 

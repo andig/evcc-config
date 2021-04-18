@@ -65,6 +65,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [SMA Sunny Island / Sunny Boy Storage (Battery Meter)](#meter-sma-sunny-island--sunny-boy-storage-battery-meter)
 - [SMA SunnyBoy / TriPower / other PV-inverter (PV Meter)](#meter-sma-sunnyboy--tripower--other-pv-inverter-pv-meter)
 - [SolarEdge (Grid Meter)](#meter-solaredge-grid-meter)
+- [SolarEdge Hybrid Inverter (PV Meter)](#meter-solaredge-hybrid-inverter-pv-meter)
 - [SolarEdge StorEdge (Battery Meter)](#meter-solaredge-storedge-battery-meter)
 - [Solarlog (Grid Meter)](#meter-solarlog-grid-meter)
 - [Solarlog (PV Meter)](#meter-solarlog-pv-meter)
@@ -447,6 +448,28 @@ If you want to contribute configurations to this repository please open a Pull R
       type: holding
       decode: int16
     scale: -1
+```
+
+<a id="meter-solaredge-hybrid-inverter-pv-meter"></a>
+#### SolarEdge Hybrid Inverter (PV Meter)
+
+```yaml
+- type: default
+  power:
+    type: calc
+    add:
+    - type: modbus
+      model: sunspec
+      uri: 192.0.2.2:502
+      id: 1
+      value: 103:DCW
+    - type: modbus
+      uri: 192.0.2.2:502
+      id: 1
+      register:
+        address: 62836
+        type: holding
+        decode: float32s
 ```
 
 <a id="meter-solaredge-storedge-battery-meter"></a>

@@ -1,0 +1,23 @@
+type: default
+name: SolarEdge Hybrid Inverter (PV Meter)
+sample: |
+  power:
+    type: calc
+    add:
+    - type: modbus
+      model: sunspec
+      uri: 192.0.2.2:502
+      id: 1
+      value: 103:DCW
+    - type: modbus
+      uri: 192.0.2.2:502
+      id: 1
+      register:
+        address: 62836
+        type: holding
+        decode: float32s
+
+# Technical Note – SunSpec Logging in SolarEdge Inverters
+# https://www.solaredge.com/sites/default/files/sunspec-implementation-technical-note.pdf
+# Technical Note – Power Control Protocol for SolarEdge Inverters
+# https://www.solaredge.com/sites/default/files/application_note_power_control_configuration.pdf

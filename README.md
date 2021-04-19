@@ -881,7 +881,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: tplink
-  uri: 192.0.2.2:9999 # TP-LINK Smart Plug ip address + port (local)
+  uri: 192.0.2.2 # TP-LINK Smart Plug ip address (local)
   standbypower: 15 # standbypower threshold / trickle charge of used charger in W
 ```
 

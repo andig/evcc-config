@@ -1,4 +1,4 @@
-type: tplink # TP-LINK Smart Plug with energy meter like HS110
+type: tplink # TP-LINK Smart-Home outlet with energy meter like HS110
 name: TP-LINK Smart Plug
 sample: |
   uri: 192.0.2.2 # TP-LINK Smart Plug ip address (local)

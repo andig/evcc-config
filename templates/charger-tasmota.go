@@ -12,7 +12,7 @@ func init() {
 		Sample: `uri: http://192.168.xxx.xxx # tasmota device ip address (local)
 # user: xxxx # user, (optional) in case user + password are defined
 # password: xxxxx #  (optional) in case user + password are defined
-standbypower: 10 # standbypower threshold / trickle charge of used charger in W`,
+standbypower: 15 # treat as charging above this power`,
 	}
 
 	registry.Add(template)

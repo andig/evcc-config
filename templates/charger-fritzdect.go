@@ -13,7 +13,7 @@ func init() {
 user: xxxxxxxxxx # FRITZ!Box username (Has to have Smart Home privileges!)
 password: yyyyyyyyyy # FRITZ!Box password
 ain: '007788992233' # switch actor identification number without blanks (see AIN number on switch sticker)
-standbypower: 10 # standbypower threshold in W (depends on embeded vehicle charger)`,
+standbypower: 15 # treat as charging above this power`,
 	}
 
 	registry.Add(template)

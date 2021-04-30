@@ -298,16 +298,13 @@ If you want to contribute configurations to this repository please open a Pull R
     type: mqtt # use mqtt plugin
     topic: mbmd/sdm1-1/Power # mqtt topic
     timeout: 10s # don't use older values
-  currents:
+  currents: # List of currents in Amperes for the three phases L1/L2/L3
   - type: mqtt
-    uri: energy/chargemeter
-    jq: .current0
+    topic: energy/chargemeter/current0 # Current of L1
   - type: mqtt
-    uri: energy/chargemeter
-    jq: .current1
+    topic: energy/chargemeter/current1 # Current of L2
   - type: mqtt
-    uri: energy/chargemeter
-    jq: .current2
+    topic: energy/chargemeter/current2 # Current of L3
 ```
 
 <a id="meter-generic-script"></a>

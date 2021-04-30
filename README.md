@@ -298,6 +298,16 @@ If you want to contribute configurations to this repository please open a Pull R
     type: mqtt # use mqtt plugin
     topic: mbmd/sdm1-1/Power # mqtt topic
     timeout: 10s # don't use older values
+  currents:
+  - type: mqtt
+    uri: energy/chargemeter
+    jq: .current0
+  - type: mqtt
+    uri: energy/chargemeter
+    jq: .current1
+  - type: mqtt
+    uri: energy/chargemeter
+    jq: .current2
 ```
 
 <a id="meter-generic-script"></a>

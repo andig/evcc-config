@@ -9,8 +9,8 @@ func init() {
 		Class:  "charger",
 		Type:   "nrgkick-bluetooth",
 		Name:   "NRGKick BT (Bluetooth)",
-		Sample: `macaddress: 00:99:22 # BT device MAC address
-pin: # App PIN number (write protection)`,
+		Sample: `macaddress: 00:1E:C0:XX:XX:XX # BT device MAC address (sudo hcitool lescan)
+pin: 1234 # App PIN number (write protection, ignore leading zeros)`,
 	}
 
 	registry.Add(template)

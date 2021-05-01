@@ -810,8 +810,8 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ```yaml
 - type: nrgkick-bluetooth
-  macaddress: 00:99:22 # BT device MAC address
-  pin: # App PIN number (write protection)
+  macaddress: 00:1E:C0:XX:XX:XX # BT device MAC address (sudo hcitool lescan)
+  pin: 1234 # App PIN number (write protection, ignore leading zeros)
 ```
 
 <a id="charger-nrgkick-connect"></a>
@@ -820,7 +820,7 @@ If you want to contribute configurations to this repository please open a Pull R
 ```yaml
 - type: nrgkick-connect
   uri: http://192.0.2.2
-  mac: 00:99:22 # BT device MAC address
+  macaddress: 00:1E:C0:XX:XX:XX # BT device MAC address (sudo hcitool lescan)
   password: # password
 ```
 

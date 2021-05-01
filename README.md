@@ -64,6 +64,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Kostal Smart Energy Meter (Grid Meter)](#meter-kostal-smart-energy-meter-grid-meter)
 - [Multiple DC MPP strings combined (PV Meter)](#meter-multiple-dc-mpp-strings-combined-pv-meter)
 - [Multiple PV inverters combined (PV Meter)](#meter-multiple-pv-inverters-combined-pv-meter)
+- [Shelly EM3 using Generic HTTP (with currents)](#meter-em3-http-currents)
 - [SMA Sunny Home Manager / Energy Meter (Speedwire)](#meter-sma-sunny-home-manager--energy-meter-speedwire)
 - [SMA Sunny Island / Sunny Boy Storage (Battery Meter)](#meter-sma-sunny-island--sunny-boy-storage-battery-meter)
 - [SMA SunnyBoy / TriPower / other PV-inverter (PV Meter)](#meter-sma-sunnyboy--tripower--other-pv-inverter-pv-meter)
@@ -298,13 +299,6 @@ If you want to contribute configurations to this repository please open a Pull R
     type: mqtt # use mqtt plugin
     topic: mbmd/sdm1-1/Power # mqtt topic
     timeout: 10s # don't use older values
-  currents: # List of currents in Amperes for the three phases L1/L2/L3
-  - type: mqtt
-    topic: energy/chargemeter/current0 # Current of L1
-  - type: mqtt
-    topic: energy/chargemeter/current1 # Current of L2
-  - type: mqtt
-    topic: energy/chargemeter/current2 # Current of L3
 ```
 
 <a id="meter-generic-script"></a>
@@ -428,6 +422,35 @@ If you want to contribute configurations to this repository please open a Pull R
       model: sunspec
       uri: 192.0.2.3:502
       id: 1
+```
+
+<a id="meter-em3-http-currents"></a>
+#### Shelly EM3 using Generic HTTP (with currents)
+
+```yaml
+- type: default
+  power: # power reading
+    type: calc # sum the three power readings
+    add:
+    - type: http
+      uri: http://<em3_ip>/emeter/0
+      jq: .power
+    - type: http
+      uri: http://<em3_ip>/emeter/1
+      jq: .power
+    - type: http
+      uri: http://<em3_ip>/emeter/2
+      jq: .power
+  currents: # Optional: List of currents in Amperes
+  - type: http
+    uri: http://<em3_ip>/emeter/0
+    jq: .current
+  - type: http
+    uri: http://<em3_ip>/emeter/1
+    jq: .current
+  - type: http
+    uri: http://<em3_ip>/emeter/2
+    jq: .current
 ```
 
 <a id="meter-sma-sunny-home-manager--energy-meter-speedwire"></a>

@@ -1,0 +1,17 @@
+type: default
+name: Shelly 3EM (MQTT)
+sample: |
+  power: # power reading
+  - type: http # use http
+    uri: http://192.0.2.2/status
+    jq: .emeters | map(.power) | add # sum power values of all three (L1, L2, L3) meters
+  currents: # Optional: List of currents in amperes
+  - type: http # use http
+    uri: http://192.0.2.2/emeter/0
+    jq: .current
+  - type: http # use http
+    uri: http://192.0.2.2/emeter/1
+    jq: .current
+  - type: http # use http
+    uri: http://192.0.2.2/emeter/2
+    jq: .current

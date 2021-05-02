@@ -1,5 +1,5 @@
 type: default
-name: Shelly 3EM (MQTT)
+name: Shelly 3EM (HTTP)
 sample: |
   power: # power reading
   - type: http # use http

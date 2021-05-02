@@ -64,7 +64,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Kostal Smart Energy Meter (Grid Meter)](#meter-kostal-smart-energy-meter-grid-meter)
 - [Multiple DC MPP strings combined (PV Meter)](#meter-multiple-dc-mpp-strings-combined-pv-meter)
 - [Multiple PV inverters combined (PV Meter)](#meter-multiple-pv-inverters-combined-pv-meter)
-- [Shelly 3EM (MQTT)](#meter-shelly-3em-mqtt)
+- [Shelly 3EM (HTTP)](#meter-shelly-3em-http)
 - [SMA Sunny Home Manager / Energy Meter (Speedwire)](#meter-sma-sunny-home-manager--energy-meter-speedwire)
 - [SMA Sunny Island / Sunny Boy Storage (Battery Meter)](#meter-sma-sunny-island--sunny-boy-storage-battery-meter)
 - [SMA SunnyBoy / TriPower / other PV-inverter (PV Meter)](#meter-sma-sunnyboy--tripower--other-pv-inverter-pv-meter)
@@ -431,8 +431,8 @@ If you want to contribute configurations to this repository please open a Pull R
       id: 1
 ```
 
-<a id="meter-shelly-3em-mqtt"></a>
-#### Shelly 3EM (MQTT)
+<a id="meter-shelly-3em-http"></a>
+#### Shelly 3EM (HTTP)
 
 ```yaml
 - type: default

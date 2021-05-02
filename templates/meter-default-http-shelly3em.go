@@ -8,7 +8,7 @@ func init() {
 	template := registry.Template{
 		Class:  "meter",
 		Type:   "default",
-		Name:   "Shelly 3EM (MQTT)",
+		Name:   "Shelly 3EM (HTTP)",
 		Sample: `power: # power reading
 - type: http # use http
   uri: http://192.0.2.2/status

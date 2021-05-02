@@ -1,5 +1,5 @@
 type: default
-name: Shelly 3EM (HTTP)
+name: Shelly 3EM (HTTP) / General Purpose Meter
 sample: |
   power: # power reading
   - type: http # use http

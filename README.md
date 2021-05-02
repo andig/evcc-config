@@ -16,6 +16,7 @@ If you want to contribute configurations to this repository please open a Pull R
 
 ## Chargers
 
+- [Easee Home (Cloud API)](#charger-easee-cloud-api)
 - [EVSE DIN (Modbus RTU)](#charger-evse-din-modbus-rtu)
 - [EVSE DIN (Modbus/TCP)](#charger-evse-din-modbus-tcp)
 - [EVSE-Wifi](#charger-evse-wifi)
@@ -650,6 +651,21 @@ If you want to contribute configurations to this repository please open a Pull R
 
 
 ### Chargers
+
+<a id="charger-easee-cloud-api"></a>
+#### Easee Home (Cloud API)
+
+```yaml
+sponsortoken: ey____ #Paste your sponsortoken here
+...
+chargers:
+ - name: number_one
+   type: easee
+   user: foo@example.org
+   password: *****
+   charger: EH______
+   cache: 10s
+```
 
 
 <a id="charger-evse-din-modbus-rtu"></a>

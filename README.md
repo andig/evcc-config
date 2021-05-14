@@ -94,6 +94,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Kia (e-Niro, e-Soul, etc)](#vehicle-kia-e-niro-e-soul-etc)
 - [Nissan (Leaf)](#vehicle-nissan-leaf)
 - [NIU E-Scooter](#vehicle-niu-e-scooter)
+- [OVMS](#vehicle-ovms)
 - [Porsche](#vehicle-porsche)
 - [Renault (Zoe)](#vehicle-renault-zoe)
 - [Tesla](#vehicle-tesla)
@@ -1037,6 +1038,19 @@ If you want to contribute configurations to this repository please open a Pull R
   user: xxxxxxx # NIU app user
   password: xxxxxx # NIU app password
   serial: NXXXXXXXXXXXXXXX # NIU E-Scooter serial number like shown in app 
+```
+
+<a id="vehicle-ovms"></a>
+#### OVMS
+
+```yaml
+- type: ovms
+  title: Smart ED # display name for UI
+  capacity: 17 # kWh
+  user: # user server
+  password: # password server
+  vehicleid: # vehicle id
+  server: dexters-web.de # used ovms server [dexters-web.de or api.openvehicles.com]
 ```
 
 <a id="vehicle-porsche"></a>

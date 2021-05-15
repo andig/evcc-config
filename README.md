@@ -33,6 +33,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Phoenix EM-CP-PP-ETH Controller (Modbus/TCP)](#charger-phoenix-em-cp-pp-eth-controller-modbus-tcp)
 - [Phoenix EV-ETH Controller (Modbus/TCP)](#charger-phoenix-ev-eth-controller-modbus-tcp)
 - [Phoenix EV-SER Controller (Modbus RTU)](#charger-phoenix-ev-ser-controller-modbus-rtu)
+- [Shelly](#charger-shelly)
 - [Tasmota](#charger-tasmota)
 - [TinkerForge WARP Charger](#charger-tinkerforge-warp-charger)
 - [TP-LINK Smart Plug](#charger-tp-link-smart-plug)
@@ -866,6 +867,16 @@ If you want to contribute configurations to this repository please open a Pull R
   baudrate: 9600 # configurable (S2/DIP 1)
   comset: 8N1
   id: 1 # configurable (S2/DIP 2–6)
+```
+
+<a id="charger-shelly"></a>
+#### Shelly
+
+```yaml
+- type: shelly
+  uri: http://192.168.xxx.xxx  # shelly device ip address (local)
+  channel: 0  # Shelly device relay channel 
+  standbypower: 15  # treat as charging above this power
 ```
 
 <a id="charger-tasmota"></a>

@@ -94,7 +94,7 @@ If you want to contribute configurations to this repository please open a Pull R
 - [Kia (e-Niro, e-Soul, etc)](#vehicle-kia-e-niro-e-soul-etc)
 - [Nissan (Leaf)](#vehicle-nissan-leaf)
 - [NIU E-Scooter](#vehicle-niu-e-scooter)
-- [OVMS](#vehicle-ovms)
+- [OVMS (Twizzy, Smart, ...)](#vehicle-ovms)
 - [Porsche](#vehicle-porsche)
 - [Renault (Zoe)](#vehicle-renault-zoe)
 - [Tesla](#vehicle-tesla)
